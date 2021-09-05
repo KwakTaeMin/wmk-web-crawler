@@ -20,6 +20,19 @@ public class EnglishesTest {
 	}
 
 	@Test
+	void create2() {
+		Englishes englishes = new Englishes("1937jdozA921amdB1zbaAaaaaAAaaaAAaaAAAAaaa");
+		String actual = "";
+		String expected = "AAAAAAAAAAaaaaaaaaaaaaaaBbddjmozz";
+		for (English english : englishes.getEnglishs()) {
+			actual += english.value();
+		}
+
+		assertThat(englishes.getEnglishs().size()).isEqualTo(33);
+		assertThat(expected).isEqualTo(actual);
+	}
+
+	@Test
 	void pop() {
 		Englishes englishes = new Englishes("1937jdozA921amdB1zb");
 		assertThat(englishes.getEnglishs().size()).isEqualTo(11);

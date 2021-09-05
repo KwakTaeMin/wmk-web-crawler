@@ -20,6 +20,7 @@ public class Englishes {
 	private List<English> toList(String text) {
 		String converted = EnglishConverter.convert(text.trim());
 		return Arrays.stream(converted.split(SPLIT_UNIT))
+			.sorted()
 			.sorted(String.CASE_INSENSITIVE_ORDER)
 			.map(English::new)
 			.collect(Collectors.toList());
