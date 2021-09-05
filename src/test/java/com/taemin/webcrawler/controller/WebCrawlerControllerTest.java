@@ -32,7 +32,7 @@ public class WebCrawlerControllerTest {
 	ExtractableResponse<Response> outputRequest() {
 		return RestAssured
 			.given().log().all()
-			.when().get("/crawling?url=https://google.com&type=TEXT&unit=100")
+			.when().get("/crawling?url=https://naver.com&type=TEXT&unit=100")
 			.then().log().all()
 			.extract();
 	}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        function onClick() {
+            var url = $("#url").val();
+            var type = $("#type").val();
+            var unit = $("#unit").val();
+            $("#share").empty();
+            $("#rest").empty();
+            $.ajax({
+                url: "/crawling?url=" + url + "&type=" + type + "&unit=" + unit,
+                type: "GET"
+            })
+            .done(function(data) {
+                for(var value of data.share) {
+                   $('#share').append($("<p>").text(value));
+                }
+                $('#rest').append($("<p>").text(data.rest));
+            });
+        }
+    </script>
+</head>
+<body>
+    <h3>[입력]</h3>
+    <form>
+        <p>URL : <input id="url" type="text" name="url"/></p>
+        <p>Type :
+            <select id="type" name="type">
+                <option value="TEXT" selected>TEXT 전체</option>
+                <option value="HTML_EXCEPT">HTML 태그 제외</option>
+            </select>
+        </p>
+        <p>출력 단위 묶음 : <input id="unit" type="text" name="unit"/></p>
+        <input type="button" value="출력" onclick="onClick()"/>
+    </form>
+    <h3>[출력]</h3>
+    <p>몫 : </p>
+    <div id="share">
+    </div>
+    <p>나머지 : </p>
+    <div id="rest">
+    </div>
+
+</body>
+</html>
