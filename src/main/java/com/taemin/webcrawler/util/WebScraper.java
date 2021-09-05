@@ -1,12 +1,10 @@
-package com.taemin.webcrawler.service;
+package com.taemin.webcrawler.util;
 
 import java.io.IOException;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.springframework.stereotype.Component;
 
-@Component
 public class WebScraper {
 
 	private static final int TIME_OUT = 50000;

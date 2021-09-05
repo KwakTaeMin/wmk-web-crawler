@@ -1,4 +1,4 @@
-package com.taemin.webcrawler.service;
+package com.taemin.webcrawler.util;
 
 import static org.assertj.core.api.Assertions.*;
 
